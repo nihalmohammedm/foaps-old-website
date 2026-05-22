@@ -1,0 +1,475 @@
+/* 
+Theme Name: Hello Elementor Child
+Theme URI: https://github.com/elementor/hello-theme/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 1.0.1
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/*
+    Add your custom styles here
+*/
+h1.entry-title {
+display: none!important;
+}
+h1 {
+    font-family: gordita !important;
+}
+h2 {
+    font-family: gordita !important;
+}
+h3 {
+    font-family: gordita !important;
+}
+h4 {
+    font-family: gordita !important;
+}
+h5 {
+    font-family: gordita !important;
+}
+h6 {
+    font-family: gordita !important;
+}
+p{
+        font-family: gordita !important;
+        font-size: 17px;
+    line-height: 26px;
+
+}
+.elementor-button-text{
+            font-family: gordita !important;
+
+}
+.elementor-testimonial__text{
+                font-family: gordita !important;
+
+}
+.elementor-testimonial__name{
+                    font-family: gordita !important;
+
+}
+.logo a{
+    color: #FF6B28 !important;
+}
+h4 a{
+    font-family: gordita !important;
+    color: #2A2A2A !important;
+    font-size: 30px !important;
+    line-height: 38px !important;
+}
+.page-header h1{
+    text-align: center;
+}
+span.date1{
+font-family: gordita;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #a2a2a2;
+}
+span.title{
+    font-family: gordita;
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #2a2a2a;
+}
+.opacity h5{
+    opacity: 0.26 !important;
+}
+.underline_head h1 span{
+    position: relative;
+}
+.underline_head h1 span img{
+    position: absolute;
+    top: 104px;
+        z-index: -1;
+
+    /*bottom: -30px;
+    left: 0;
+    z-index: -1;
+    max-width: 100%;
+    display: block;*/
+}
+
+.right_img:before{
+    /*content: url(https://falconicsweb.in/foaps/wp-content/themes/hello-theme-child-master/images/shape/45.svg);
+    position: absolute;
+    top: -14%;
+    left: -13%;
+    z-index: -1;*/
+    animation: rotatedTwo 50s infinite linear;
+}
+.right_img:after {
+    /*content: url(https://falconicsweb.in/foaps/wp-content/themes/hello-theme-child-master/images/shape/50.svg);
+    position: absolute;
+    bottom: -19%;
+    right: -21%;
+    z-index: -1;*/
+    animation: rotatedTwo 50s infinite linear;
+}
+
+.left_img:before{
+    /*content: url(https://falconicsweb.in/foaps/wp-content/themes/hello-theme-child-master/images/shape/50.svg);
+    position: absolute;
+    top: -20%;
+    left: -14%;
+    z-index: -1;*/
+    animation: rotatedTwo 50s infinite linear;
+}
+.left_img:after {
+    /*content: url(https://falconicsweb.in/foaps/wp-content/themes/hello-theme-child-master/images/shape/45.svg);
+    position: absolute;
+    bottom: -20%;
+    right: -14%;
+    z-index: -1;*/
+    animation: rotatedTwo 50s infinite linear;
+}
+.elementor-accordion-item {
+    border-bottom: 2px solid #000 !important;
+}
+.signIn-action{
+        font-family: gordita;
+}
+.signUp-action{
+            font-family: gordita;
+
+}
+.croner_opacity .elementor-widget-container img{
+        z-index: -1;
+}
+.left_top img {
+        animation: rotatedTwo 50s infinite linear;
+
+}
+.sidebar-recent-news ul li a {
+    font-size: 24px;
+}
+.feature-blog-one h3 a{
+                font-family: gordita;
+
+    font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 32px;
+}
+
+.search-filter-form button{
+    width: 85px;
+    right: 7px;
+    bottom: 7px;
+    top: 7px;
+    background: #111111;
+    position: absolute;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.fancy-hero-one .bg-wrapper {
+    background: url(https://falconicsweb.in/foaps/wp-content/themes/hello-theme-child-master/images/shape/bg3.svg) no-repeat center;
+    background-size: cover;
+    border-radius: 20px;
+    text-align: center;
+    padding: 108px 0 110px;
+}
+
+.fancy-hero-one {
+    padding: 0 70px;
+}
+.search h2 a{
+font-family: gordita;
+
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+  color: #2a2a2a;
+}
+.elementor-icon-list-text{
+        font-family: gordita !important;
+
+}
+.elementor-widget-container{
+            font-family: gordita !important;
+
+}
+.avatar-info{
+font-family: gordita !important;
+
+}
+.search-submit-wp{
+    height: 50px !important;
+}
+.search-field {
+    height: 50px !important;
+}
+
+
+#search-help-articles{
+    position: absolute !important;
+    right: 10px!important;
+    top: 8px !important;
+    bottom: 8px!important;
+    background: var(--red-light)!important;
+    width: 184px!important;
+    border-radius: 5px !important;
+    text-align: center!important;
+    color: #fff !important;
+    font-size: 17px!important;
+    font-weight: 500!important;
+    transition: all 0.3s ease-in-out!important;
+}
+
+form.help-search
+{
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    justify-content: center;
+}
+
+.help-search input
+{
+        width: 82%;
+    margin-left: 160px;
+}
+
+
+.help-search button#search-help-articles
+{
+    position: relative!important;
+    right: 61px !important;
+    top: 0px!important;
+    background: none!important;
+    border: 0px;
+    outline: none!important;
+}
+
+.help-search  #search-help-articles img
+{
+    background: #ff7336;
+    padding: 9px;
+    padding-bottom: 9px;
+}
+
+.single-success-stories-wrapper .recent-title
+{
+   font-size: 22px;
+}
+
+.single-success-stories-wrapper .recent-date
+{
+   color: #A2A2A2;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+ form.help-search
+    {
+        margin-left: 30px;
+    }
+    .help-search button#search-help-articles
+    {
+        width: auto!important;
+    }
+    .help-search input
+    {
+            width: 100%;
+        margin-left: 0px;
+    }
+    .theme-menu-two .navbar .navbar-toggler
+    {
+        border: 0px!important;
+    }
+    .help-search button#search-help-articles {
+        right: 55px!important;
+    }
+
+    .single-success-stories-wrapper h2 {
+    font-size: 25px; 
+line-height: 33px;
+color: #2A2A2A;
+font-weight: 500;
+}
+.single-success-stories-wrapper .fancy-hero-one
+{
+    padding: 0px!important;
+}
+}
+
+.all-faqs .faqs-all-qus .article-preview {
+
+      /*border-bottom:1px solid #e4e4e4 !important;*/
+
+}
+.page-id-2094 .theme-main-menu {
+background: #ff6a12 !important;
+}
+.page-id-2094 .navbar-nav .nav-item .nav-link{
+    color: #fff!important;
+}
+.page-id-2094 .signIn-action{
+    color: #fff!important;
+}
+.page-id-2094 .signUp-action{
+        color: #ff6a12!important;
+}
+.page-id-2094 .theme-menu-two .user-login-button li .signUp-action{
+    border: 1px solid #fff!important;
+    background: #fff !important;
+
+}
+.page-id-2094 .logo a {
+background-image: url(https://falconicsweb.in/foaps/wp-content/themes/hello-theme-child-master/images/foaps/foaps-white.png);
+background-repeat: no-repeat;
+}
+.page-id-2094 .logo a  img{
+    visibility: hidden !important;
+}
+.blog  span.date1{
+font-family: 'gilroy', sans-serif  !important;
+    font-size: 16px !important;
+    color: rgba(10,10,10,0.24) !important;
+    padding: 25px 0 3px !important;
+}
+.blog .search-field {
+    height: 48px !important;
+    margin-left: 5px !important;
+    margin-top: -5px !important;
+    border-radius: 3px 0px 0px 3px !important;
+}
+.blog span.page-numbers.current {
+    font-size: 20px;
+    padding: 10px;
+    color: #fd6a5e;
+    font-weight: 500;
+}
+.blog a.page-numbers {
+    font-size: 25px;
+    padding: 10px;
+    color: #000;
+}
+.blog a.page-numbers:hover {
+    font-size: 25px;
+    padding: 10px;
+    color: #fd6a5e;
+}
+.next .page-numbers:hover  i{
+    color: #fd6a5e;
+    font-weight: bold;
+}
+.page-template-template-success-stories .fancy-hero-two .page-title{
+font-size: 16px !important;
+    text-transform: capitalize !important;
+    color: #B1B1B1 !important;
+    font-family: gordita !important;
+}
+.page-template-template-success-stories .fancy-hero-two .heading {
+    font-size: 41px !important;
+    line-height: 49px !important;
+}
+.page-template-template-help-support .fancy-hero-two .heading {
+    font-size: 41px !important;
+    line-height: 49px !important;
+}
+.age-template-template-help-support .fancy-hero-two .page-title{
+font-size: 16px !important;
+    text-transform: capitalize !important;
+    color: #B1B1B1 !important;
+    font-family: gordita !important;
+}
+.blog-page-bg .shape-one {
+    display: none !important;
+}
+.faqs-inner-page .shape-two{
+    display: none !important;
+
+}
+/*p{
+    font-size: 11px !important;
+    line-height: 18px !important;
+}*/
+@media only screen and (max-width: 600px) {
+    .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+        padding: 10px 20px;
+    }
+    .page-id-2094 .navbar-nav .nav-item .nav-link {color: #2B2C2E !important;}
+    .page-id-2094 .navbar .navbar-toggler {color:#fff;}
+    .page-id-2094 .signIn-action { color:#000 !important;}
+    .client-feedback-slider-four .elementor-widget-wrap { background: none;}
+    p{
+    font-size: 14px !important;
+    line-height: 21px !important;
+}
+    .page-template-template-success-stories .fancy-hero-two .page-title{
+font-size: 14px !important;
+    text-transform: capitalize !important;
+    color: #B1B1B1 !important;
+    font-family: gordita !important;
+}
+.page-template-template-success-stories .fancy-hero-two .heading {
+    font-size: 32px !important;
+    line-height: 40px !important;
+}
+.page-template-template-help-support .fancy-hero-two .heading {
+    font-size: 32px !important;
+    line-height: 40px !important;
+}
+.age-template-template-help-support .fancy-hero-two .page-title{
+font-size: 14px !important;
+    text-transform: capitalize !important;
+    color: #B1B1B1 !important;
+    font-family: gordita !important;
+}
+.blog .fancy-hero-two .page-title {
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #B1B1B1;
+    font-family: gordita;
+}
+.blog .fancy-hero-two .heading {
+    font-size: 32px !important;
+    line-height: 40px !important;
+}
+}
+
+#search-text-input{
+    /*border-top:thin solid  #e5e5e5;
+    border-right:thin solid #e5e5e5;
+    border-bottom:0;
+    border-left:thin solid  #e5e5e5;
+    box-shadow:0px 1px 1px 1px #e5e5e5;*/
+    float:left;
+    height:17px;
+    margin:.8em 0 0 .5em; 
+    outline:0;
+    padding:.4em 0 .4em .6em; 
+    width:300px; 
+    border: 1px solid #000000;
+}
+   
+#button-holder{
+    /*background-color:#f1f1f1;
+    border-top:thin solid #e5e5e5;
+    box-shadow:1px 1px 1px 1px #e5e5e5;*/
+    cursor:pointer;
+    float:left;
+    height:27px;
+    margin: 10px -35px;
+}
