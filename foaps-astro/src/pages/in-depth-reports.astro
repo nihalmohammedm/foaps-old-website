@@ -1,0 +1,247 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CTABanner from "../components/CTABanner.astro";
+
+const reportTypes = [
+  {
+    icon: "📊",
+    title: "Sales Reports",
+    body: "Track daily, weekly, and monthly revenue across all delivery platforms. Understand your growth trajectory.",
+  },
+  {
+    icon: "🏆",
+    title: "Top Performers",
+    body: "See which menu items, times, and platforms bring in the most revenue — and double down on what works.",
+  },
+  {
+    icon: "⏰",
+    title: "Peak Hour Analysis",
+    body: "Identify your busiest hours to staff up, prep ahead, and ensure you never miss an order.",
+  },
+  {
+    icon: "📉",
+    title: "Loss Analysis",
+    body: "Find out what's dragging your numbers down — cancellations, refusals, or slow-moving items.",
+  },
+  {
+    icon: "🌐",
+    title: "Platform Comparison",
+    body: "Compare performance across Swiggy, Zomato, Dunzo and others side-by-side.",
+  },
+  {
+    icon: "📆",
+    title: "Custom Date Ranges",
+    body: "Filter any report by your own date range to analyze specific campaigns or time periods.",
+  },
+];
+---
+
+<Layout
+  title="Restaurant Analytics & In-depth Reports – Foaps"
+  description="Identify best performing items, peak hours, and areas to improve with Foaps in-depth restaurant reports. Make smarter decisions from your order data."
+>
+  <Navbar />
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div class="page-hero__content">
+          <SectionHeader
+            eyebrow="In-depth Reports"
+            title="Draw decisive conclusions from actionable insights"
+            subtitle="Identify the best performing fields, areas that need attention, and find productive insights to grow your business from your past order data."
+            align="left"
+            showLine={false}
+          />
+          <div class="page-hero__actions">
+            <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary">Start for Free</a>
+            <a href="/request-demo" class="btn btn-outline">See a Demo</a>
+          </div>
+        </div>
+        <div class="page-hero__image">
+          <img
+            src="/assets/features-3.svg"
+            alt="In-depth reports and analytics illustration"
+            width="580"
+            height="500"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="report-types">
+      <div class="container">
+        <SectionHeader
+          title="Reports that actually help you grow"
+          subtitle="Every report in Foaps is built around the questions restaurant owners actually ask."
+          showLine={false}
+        />
+        <ul class="report-types__grid">
+          {
+            reportTypes.map((r) => (
+              <li class="report-card">
+                <span class="report-card__icon" aria-hidden="true">{r.icon}</span>
+                <h3>{r.title}</h3>
+                <p>{r.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="report-detail">
+      <div class="container report-detail__inner">
+        <div class="report-detail__image">
+          <img
+            src="/assets/how-it-works-4.svg"
+            alt="Analytics dashboard showing restaurant insights"
+            loading="lazy"
+            width="560"
+            height="480"
+          />
+        </div>
+        <div class="report-detail__content">
+          <p class="report-detail__eyebrow">Why it matters</p>
+          <h2>Turn your order data into growth decisions</h2>
+          <p>
+            Most restaurant owners look at sales at the end of the month and wonder where the money
+            went. Foaps gives you a clear picture, in real time, of what's working and what isn't.
+          </p>
+          <p>
+            From identifying your top revenue-generating platform to understanding which items
+            consistently get cancelled — Foaps turns raw data into actionable intelligence.
+          </p>
+          <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary" style="margin-top:16px">
+            Get Started Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CTABanner
+      title="Stop guessing. Start growing."
+      subtitle="Use Foaps in-depth reports to make smarter decisions for your restaurant."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .page-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .page-hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .page-hero__image img {
+    width: 100%;
+  }
+
+  .report-types {
+    padding: 80px 0;
+    background: var(--color-light-bg);
+  }
+
+  .report-types__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .report-card {
+    padding: 28px;
+    background: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .report-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .report-card__icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .report-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+  }
+
+  .report-card p {
+    font-size: 14px;
+  }
+
+  .report-detail {
+    padding: 80px 0;
+  }
+
+  .report-detail__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .report-detail__image img {
+    width: 100%;
+  }
+
+  .report-detail__eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .report-detail__content h2 {
+    margin-bottom: 20px;
+  }
+
+  .report-detail__content p {
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero__inner,
+    .report-detail__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .report-types__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .report-types__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

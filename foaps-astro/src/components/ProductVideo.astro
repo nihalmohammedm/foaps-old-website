@@ -1,0 +1,157 @@
+---
+const youtubeId = "l1FzPoAa2I4";
+const thumbnailUrl = `/assets/video-thumbnail.jpg`;
+---
+
+<section class="product-video">
+  <div class="container">
+    <div class="product-video__header">
+      <p class="product-video__eyebrow">Product Video</p>
+      <h2 class="product-video__title">See Foaps in action</h2>
+      <img
+        src="/assets/line-decoration.svg"
+        alt=""
+        aria-hidden="true"
+        class="product-video__line"
+        width="250"
+        height="30"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="product-video__player" id="video-player">
+      <img
+        src={thumbnailUrl}
+        alt="Foaps product video thumbnail — click to play"
+        class="product-video__thumb"
+        loading="lazy"
+        width="900"
+        height="506"
+      />
+      <button class="product-video__play" id="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="40" cy="40" r="40" fill="rgba(255,255,255,0.95)" />
+          <path d="M32 26l24 14-24 14V26z" fill="#F96F60" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="product-video__embed" id="video-embed" hidden>
+      <iframe
+        id="yt-iframe"
+        src=""
+        data-src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+        title="See Foaps in action"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+  const playBtn = document.getElementById("play-btn");
+  const player = document.getElementById("video-player");
+  const embed = document.getElementById("video-embed");
+  const iframe = document.getElementById("yt-iframe") as HTMLIFrameElement;
+
+  playBtn?.addEventListener("click", () => {
+    if (player && embed && iframe) {
+      player.hidden = true;
+      embed.hidden = false;
+      iframe.src = iframe.dataset.src ?? "";
+    }
+  });
+</script>
+
+<style>
+  .product-video {
+    background: linear-gradient(135deg, #fff8f7 0%, #fff 50%, #fff9f6 100%);
+  }
+
+  .product-video__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .product-video__eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+  }
+
+  .product-video__title {
+    margin-bottom: 14px;
+  }
+
+  .product-video__line {
+    display: inline-block;
+  }
+
+  /* Thumbnail player */
+  .product-video__player {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-video__thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .product-video__player:hover .product-video__thumb {
+    transform: scale(1.02);
+  }
+
+  .product-video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .product-video__play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .product-video__play svg {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.25));
+  }
+
+  /* Embed */
+  .product-video__embed {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  .product-video__embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+</style>

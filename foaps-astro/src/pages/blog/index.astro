@@ -1,0 +1,291 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+
+const posts = [
+  {
+    title: "12 Mandatory Restaurant Licenses Required to Open a Restaurant in India",
+    slug: "12-licenses-required-to-open-a-restaurant-in-india",
+    category: "Restaurant Operations",
+    date: "Mar 2022",
+    excerpt:
+      "Starting a restaurant in India requires multiple licenses. Here are the 12 mandatory ones you need before you open.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "10 Best PetPooja Alternatives and Competitors in India in 2022",
+    slug: "petpooja-alternatives-competitors",
+    category: "Restaurant Tech",
+    date: "Apr 2022",
+    excerpt:
+      "Looking for PetPooja alternatives? We compare 10 of the best restaurant management software options available in India.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "How to Increase Restaurant Sales: 15 Proven Strategies",
+    slug: "how-to-increase-restaurant-sales",
+    category: "Growth",
+    date: "May 2022",
+    excerpt:
+      "Struggling with flat sales? These 15 proven strategies can help you grow your restaurant revenue both online and offline.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "Cloud Kitchen Business Model: A Complete Guide",
+    slug: "cloud-kitchen-business-model",
+    category: "Business",
+    date: "May 2022",
+    excerpt:
+      "Cloud kitchens are changing the food industry. Learn about the cloud kitchen business model and how to get started.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "How to Register Your Restaurant on Swiggy",
+    slug: "swiggy-restaurant-partner-registration",
+    category: "Delivery Platforms",
+    date: "Apr 2022",
+    excerpt:
+      "A step-by-step guide to registering your restaurant as a Swiggy partner and starting to receive online orders.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "Zomato Partner Registration: How to Add a Restaurant",
+    slug: "zomato-partner-registration-how-to-add-a-restaurant",
+    category: "Delivery Platforms",
+    date: "Apr 2022",
+    excerpt:
+      "Everything you need to know about getting your restaurant listed on Zomato and starting to receive orders.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "Restaurant Menu Management Software: Complete Guide",
+    slug: "restaurant-menu-management-software",
+    category: "Restaurant Tech",
+    date: "May 2022",
+    excerpt:
+      "What is menu management software and why does your restaurant need one? A complete guide for restaurant owners.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "How to Open a Restaurant in India: Complete Guide",
+    slug: "how-to-open-a-restaurant-in-india",
+    category: "Restaurant Operations",
+    date: "Mar 2022",
+    excerpt:
+      "From concept to first customer — everything you need to know about opening a restaurant in India.",
+    image: "/assets/blog-banner.png",
+  },
+  {
+    title: "Restaurant KPIs and How to Measure Them via Analytics",
+    slug: "restaurant-kpis-and-how-to-measure-it-via-analytics",
+    category: "Analytics",
+    date: "May 2022",
+    excerpt:
+      "What metrics should you be tracking for your restaurant? Learn the key KPIs and how to measure them.",
+    image: "/assets/blog-banner.png",
+  },
+];
+
+const categories = ["All", "Restaurant Tech", "Restaurant Operations", "Delivery Platforms", "Business", "Growth", "Analytics"];
+---
+
+<Layout
+  title="Restaurant Blog – Tips, Guides & Insights – Foaps"
+  description="Restaurant management tips, delivery platform guides, and business insights for restaurant owners in India."
+>
+  <Navbar />
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <SectionHeader
+          eyebrow="Blog"
+          title="Restaurant insights & guides"
+          subtitle="Tips, strategies, and how-tos for restaurant operators managing online food orders in India."
+        />
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <nav class="blog-categories" aria-label="Blog categories">
+          {
+            categories.map((cat, i) => (
+              <button class={`blog-category-btn ${i === 0 ? "blog-category-btn--active" : ""}`} data-category={cat}>
+                {cat}
+              </button>
+            ))
+          }
+        </nav>
+
+        <ul class="blog-grid">
+          {
+            posts.map((post) => (
+              <li class="blog-card" data-category={post.category}>
+                <a href={`/blog/${post.slug}`} class="blog-card__link">
+                  <div class="blog-card__image-wrap">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      loading="lazy"
+                      width="400"
+                      height="220"
+                      class="blog-card__image"
+                    />
+                    <span class="blog-card__category">{post.category}</span>
+                  </div>
+                  <div class="blog-card__body">
+                    <p class="blog-card__date">{post.date}</p>
+                    <h3 class="blog-card__title">{post.title}</h3>
+                    <p class="blog-card__excerpt">{post.excerpt}</p>
+                    <span class="blog-card__read-more">Read More →</span>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .blog-hero {
+    padding: 80px 0 40px;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .blog-content {
+    padding: 40px 0 80px;
+  }
+
+  .blog-categories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .blog-category-btn {
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid #ddd;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--color-muted);
+    transition: all 0.15s;
+  }
+
+  .blog-category-btn:hover,
+  .blog-category-btn--active {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .blog-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    background: var(--color-white);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .blog-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .blog-card__image-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .blog-card:hover .blog-card__image {
+    transform: scale(1.04);
+  }
+
+  .blog-card__category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-card__body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .blog-card__date {
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  .blog-card__title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.4;
+  }
+
+  .blog-card__excerpt {
+    font-size: 14px;
+    color: var(--color-muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .blog-card__read-more {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

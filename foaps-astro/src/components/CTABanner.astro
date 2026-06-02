@@ -1,0 +1,90 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  title = "Bring an innovative twist to online food order management with Foaps!",
+  subtitle,
+  primaryLabel = "Start for Free",
+  primaryHref = "https://receiver.orderpipe.co/v2/#/signup",
+  secondaryLabel,
+  secondaryHref = "/request-demo",
+} = Astro.props;
+---
+
+<section class="cta-banner">
+  <div class="container cta-banner__inner">
+    <h2 class="cta-banner__title">{title}</h2>
+    {subtitle && <p class="cta-banner__subtitle">{subtitle}</p>}
+    <div class="cta-banner__actions">
+      <a href={primaryHref} class="btn cta-banner__btn-primary">{primaryLabel}</a>
+      {secondaryLabel && (
+        <a href={secondaryHref} class="btn cta-banner__btn-secondary">{secondaryLabel}</a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-banner {
+    background: linear-gradient(135deg, #f96f60 0%, #f24e35 100%);
+    padding: 90px 0;
+  }
+
+  .cta-banner__inner {
+    text-align: center;
+    max-width: 760px;
+  }
+
+  .cta-banner__title {
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .cta-banner__subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 18px;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .cta-banner__actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner__btn-primary {
+    background: #fff;
+    color: var(--color-accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+  }
+
+  .cta-banner__btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+  }
+
+  .cta-banner__btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .cta-banner__btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    transform: translateY(-2px);
+  }
+</style>

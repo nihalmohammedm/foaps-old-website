@@ -1,0 +1,106 @@
+---
+const segments = [
+  { label: "Restaurants", image: "/assets/use-restaurants.png", imageAlt: "Restaurant illustration" },
+  { label: "Bakery",      image: "/assets/use-bakery.png",      imageAlt: "Bakery illustration" },
+  { label: "Cafe",        image: "/assets/use-cafe.png",        imageAlt: "Cafe illustration" },
+  { label: "Cloud Kitchen", image: "/assets/use-cloud-kitchen.png", imageAlt: "Cloud kitchen illustration" },
+  { label: "Food Truck",  image: "/assets/use-food-truck.png",  imageAlt: "Food truck illustration" },
+];
+---
+
+<section class="who-can-use">
+  <div class="container">
+    <div class="who-can-use__header">
+      <h2>Who can use FOAPS?</h2>
+      <img src="/assets/line-decoration.svg" alt="" aria-hidden="true" width="250" height="30" loading="lazy" />
+    </div>
+
+    <ul class="who-can-use__grid">
+      {
+        segments.map((seg) => (
+          <li class="who-card">
+            <div class="who-card__img-wrap">
+              <img src={seg.image} alt={seg.imageAlt} loading="lazy" width="220" height="200" />
+            </div>
+            <h5 class="who-card__label">{seg.label}</h5>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .who-can-use {
+    background: #fff;
+  }
+
+  .who-can-use__header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .who-can-use__header h2 {
+    margin-bottom: 14px;
+  }
+
+  .who-can-use__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+
+  .who-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 36px 16px 28px;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    background: #fff;
+    text-align: center;
+    transition: box-shadow 0.25s, transform 0.25s;
+    cursor: default;
+  }
+
+  .who-card:hover {
+    box-shadow: 0 8px 30px rgba(249, 111, 96, 0.1);
+    transform: translateY(-5px);
+    border-color: rgba(249, 111, 96, 0.2);
+  }
+
+  .who-card__img-wrap {
+    width: 130px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .who-card__img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .who-card__label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-heading);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 900px) {
+    .who-can-use__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .who-can-use__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

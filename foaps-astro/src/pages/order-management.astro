@@ -1,0 +1,238 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CTABanner from "../components/CTABanner.astro";
+
+const features = [
+  {
+    icon: "📥",
+    title: "Receive from all platforms",
+    body: "Get orders from Swiggy, Zomato, Dunzo and more in one inbox. Never miss an order again.",
+  },
+  {
+    icon: "✅",
+    title: "Accept & reject with one tap",
+    body: "Accept or reject orders from a single interface. No more switching between apps.",
+  },
+  {
+    icon: "🔔",
+    title: "Real-time notifications",
+    body: "Get instant alerts for every new order, so you can respond quickly and keep customers happy.",
+  },
+  {
+    icon: "📋",
+    title: "Order history & tracking",
+    body: "Access complete order history and track status across all delivery platforms.",
+  },
+  {
+    icon: "🖨️",
+    title: "Auto-print receipts",
+    body: "Automatically print order receipts for your kitchen team as soon as an order arrives.",
+  },
+  {
+    icon: "🔄",
+    title: "Multi-outlet support",
+    body: "Manage orders across multiple restaurant outlets from the same account.",
+  },
+];
+---
+
+<Layout
+  title="Restaurant Order Management System – Foaps"
+  description="Manage all your online food orders from Swiggy, Zomato, Dunzo and more in a single Foaps dashboard. Accept, reject, and track orders effortlessly."
+>
+  <Navbar />
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div class="page-hero__content">
+          <SectionHeader
+            eyebrow="Order Management"
+            title="Manage online food orders, all from a single point"
+            subtitle="Stop juggling multiple apps. Foaps brings all your delivery orders into one unified dashboard so your team can focus on great food."
+            align="left"
+            showLine={false}
+          />
+          <div class="page-hero__actions">
+            <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary">Start for Free</a>
+            <a href="/request-demo" class="btn btn-outline">See a Demo</a>
+          </div>
+        </div>
+        <div class="page-hero__image">
+          <img
+            src="/assets/features-1.svg"
+            alt="Order management dashboard illustration"
+            width="580"
+            height="500"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="om-features">
+      <div class="container">
+        <SectionHeader title="Everything you need to handle orders at scale" showLine={false} />
+        <ul class="om-features__grid">
+          {
+            features.map((f) => (
+              <li class="om-feature-card">
+                <span class="om-feature-card__icon" aria-hidden="true">{f.icon}</span>
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="om-how">
+      <div class="container om-how__inner">
+        <div class="om-how__image">
+          <img
+            src="/assets/how-it-works-1.svg"
+            alt="How order management works in Foaps"
+            loading="lazy"
+            width="560"
+            height="480"
+          />
+        </div>
+        <div class="om-how__content">
+          <p class="om-how__eyebrow">How it works</p>
+          <h2>One dashboard. Every order.</h2>
+          <p>
+            When a customer places an order on Swiggy, Zomato, or Dunzo, Foaps receives it
+            instantly and displays it in your unified order queue. Your staff can accept, track, and
+            manage the order without ever touching a different app.
+          </p>
+          <p>
+            Orders are logged, timestamps recorded, and history preserved — giving you a complete
+            picture of your order flow at any time.
+          </p>
+          <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary" style="margin-top:16px">
+            Get Started Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CTABanner
+      title="Ready to streamline your order management?"
+      subtitle="Join hundreds of restaurants already using Foaps to handle orders effortlessly."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .page-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .page-hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .page-hero__image img {
+    width: 100%;
+  }
+
+  .om-features {
+    padding: 80px 0;
+    background: var(--color-light-bg);
+  }
+
+  .om-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .om-feature-card {
+    padding: 28px;
+    background: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid #eee;
+  }
+
+  .om-feature-card__icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .om-feature-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+  }
+
+  .om-feature-card p {
+    font-size: 14px;
+  }
+
+  .om-how {
+    padding: 80px 0;
+  }
+
+  .om-how__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .om-how__image img {
+    width: 100%;
+  }
+
+  .om-how__eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .om-how__content h2 {
+    margin-bottom: 20px;
+  }
+
+  .om-how__content p {
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero__inner,
+    .om-how__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .om-features__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .om-features__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

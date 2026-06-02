@@ -1,0 +1,126 @@
+---
+---
+
+<section class="hero-banner">
+  <div class="container hero-banner__inner">
+    <div class="hero-banner__text">
+      <h1 class="hero-banner__heading">
+        Bring a <span class="hero-banner__highlight">
+          modern
+          <img src="/assets/group.png" alt="" class="hero-banner__highlight-bg" aria-hidden="true" />
+        </span> update to conventional order management
+      </h1>
+      <p class="hero-banner__sub">
+        Manage online food orders from Swiggy, Zomato, Dunzo in a single dashboard, increase
+        restaurant sales with actionable insights, automate menu &amp; pricing updates easily.
+      </p>
+      <div class="hero-banner__actions">
+        <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary">
+          Start for Free
+        </a>
+        <!-- <a href="/request-demo" class="btn btn-outline">
+          Get a Demo
+        </a> -->
+      </div>
+    </div>
+
+    <div class="hero-banner__media">
+      <img
+        src="/assets/header-hero.svg"
+        alt="Foaps restaurant order management dashboard"
+        width="693"
+        height="584"
+        loading="eager"
+        class="hero-banner__img"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-banner {
+    padding: 100px 0 80px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .hero-banner__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-banner__heading {
+    font-size: clamp(32px, 4vw, 60px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--color-heading);
+    margin-bottom: 22px;
+  }
+
+  .hero-banner__highlight {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+  }
+
+  .hero-banner__highlight-bg {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 115%;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+    display: block;
+  }
+
+  .hero-banner__sub {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--color-muted);
+    font-weight: 300;
+    margin-bottom: 38px;
+    max-width: 520px;
+  }
+
+  .hero-banner__actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-banner__media {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hero-banner__img {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  @media (max-width: 960px) {
+    .hero-banner__inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-banner__sub {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-banner__actions {
+      justify-content: center;
+    }
+
+    .hero-banner__media {
+      justify-content: center;
+    }
+  }
+</style>

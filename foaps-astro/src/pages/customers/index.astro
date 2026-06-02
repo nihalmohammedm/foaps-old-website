@@ -1,0 +1,210 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import CTABanner from "../../components/CTABanner.astro";
+
+const stories = [
+  {
+    name: "Haji Ali",
+    location: "Kerala",
+    image: "/assets/avatar.svg",
+    quote:
+      "Foaps has completely transformed how we manage our orders. We no longer miss any orders from Swiggy or Zomato. Everything is in one place and it's super easy to use.",
+    person: "Geethu",
+    role: "Operations Manager",
+    href: "/customers/haji-ali",
+  },
+  {
+    name: "Mallus Dhaba",
+    location: "Kerala",
+    image: "/assets/avatar.svg",
+    quote:
+      "Managing orders from multiple platforms was a nightmare before Foaps. Now we handle everything from a single screen. Our efficiency has gone up significantly.",
+    person: "Sathar",
+    role: "Owner",
+    href: "/customers/mallus-dhaba",
+  },
+  {
+    name: "Ceylone Bake House",
+    location: "Kerala",
+    image: "/assets/avatar.svg",
+    quote:
+      "The menu management feature is a game changer. I update once and it reflects everywhere. Saved us so much time every day.",
+    person: "Razeen",
+    role: "Owner",
+    href: "/customers/ceylone-bake-house",
+  },
+  {
+    name: "Empire Plaza",
+    location: "Kerala",
+    image: "/assets/avatar.svg",
+    quote:
+      "With Foaps we can see all our orders at a glance. The reports help us understand which dishes and platforms perform best for us.",
+    person: "Empire Plaza Team",
+    role: "Management",
+    href: "/customers/empire-plaza",
+  },
+  {
+    name: "Pankayam",
+    location: "Kerala",
+    image: "/assets/avatar.svg",
+    quote:
+      "Simple, effective, and saves us time every single day. Foaps is an essential tool for any restaurant doing food delivery.",
+    person: "Pankayam Team",
+    role: "Management",
+    href: "/customers/pankayam",
+  },
+];
+---
+
+<Layout
+  title="Customer Success Stories – Foaps"
+  description="See how restaurants across India use Foaps to manage orders, update menus, and grow their business with actionable insights."
+>
+  <Navbar />
+  <main>
+    <section class="customers-hero">
+      <div class="container">
+        <SectionHeader
+          eyebrow="Success Stories"
+          title="Restaurants that run smarter with Foaps"
+          subtitle="Real results from real restaurants. See how Foaps helps operators save time, reduce errors, and grow their delivery revenue."
+        />
+      </div>
+    </section>
+
+    <section class="stories">
+      <div class="container">
+        <ul class="stories__grid">
+          {
+            stories.map((story) => (
+              <li class="story-card">
+                <div class="story-card__header">
+                  <img
+                    src={story.image}
+                    alt={story.name}
+                    width="56"
+                    height="56"
+                    class="story-card__logo"
+                    loading="lazy"
+                  />
+                  <div>
+                    <h3 class="story-card__name">{story.name}</h3>
+                    <p class="story-card__location">{story.location}</p>
+                  </div>
+                </div>
+                <blockquote class="story-card__quote">"{story.quote}"</blockquote>
+                <div class="story-card__attribution">
+                  <p class="story-card__person">{story.person}</p>
+                  <p class="story-card__role">{story.role}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <CTABanner
+      title="Your restaurant could be next"
+      subtitle="Join the growing list of restaurants running smarter with Foaps."
+      primaryLabel="Start for Free"
+      primaryHref="https://receiver.orderpipe.co/v2/#/signup"
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .customers-hero {
+    padding: 80px 0 40px;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .stories {
+    padding: 40px 0 80px;
+  }
+
+  .stories__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .story-card {
+    padding: 32px;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .story-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .story-card__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .story-card__logo {
+    border-radius: 50%;
+    background: #f0f0f0;
+    object-fit: cover;
+  }
+
+  .story-card__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .story-card__location {
+    font-size: 13px;
+    color: #aaa;
+  }
+
+  .story-card__quote {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-muted);
+    font-style: italic;
+    flex: 1;
+  }
+
+  .story-card__attribution {
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .story-card__person {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .story-card__role {
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  @media (max-width: 900px) {
+    .stories__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .stories__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

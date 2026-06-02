@@ -1,0 +1,195 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CTABanner from "../components/CTABanner.astro";
+---
+
+<Layout
+  title="About Foaps – Restaurant Order Management System"
+  description="Foaps is a restaurant order management system built to help restaurants in India manage orders across Swiggy, Zomato, Dunzo and more from a single dashboard."
+>
+  <Navbar />
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <SectionHeader
+          eyebrow="About Us"
+          title="We're on a mission to simplify restaurant operations"
+          subtitle="Foaps was built for restaurant owners who were tired of juggling multiple delivery apps. We give you one place to manage everything."
+        />
+      </div>
+    </section>
+
+    <section class="about-story">
+      <div class="container about-story__inner">
+        <div class="about-story__content">
+          <h2>Our Story</h2>
+          <p>
+            Foaps started with a simple observation: restaurant owners in India were struggling to
+            manage orders coming in from multiple food delivery platforms. Swiggy, Zomato, Dunzo —
+            each with their own app, their own interface, and their own notification system.
+          </p>
+          <p>
+            We built Foaps to change that. Our platform brings all your delivery orders into a
+            single dashboard, lets you update your menu across all platforms at once, and gives you
+            the analytics to make better business decisions.
+          </p>
+          <p>
+            Today, Foaps serves hundreds of restaurants across India — from single-outlet cafes to
+            multi-chain cloud kitchens. And we're just getting started.
+          </p>
+        </div>
+        <div class="about-story__image">
+          <img
+            src="/assets/know-why-foaps.png"
+            alt="Foaps team working together"
+            loading="lazy"
+            width="540"
+            height="400"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="about-values">
+      <div class="container">
+        <SectionHeader
+          eyebrow="Our Values"
+          title="What we stand for"
+          showLine={false}
+        />
+        <ul class="values-grid">
+          {
+            [
+              {
+                icon: "🎯",
+                title: "Restaurant-first",
+                body: "Every decision we make is driven by what's best for restaurant operators.",
+              },
+              {
+                icon: "🔍",
+                title: "Transparency",
+                body: "Simple pricing, clear terms, honest communication. No surprises.",
+              },
+              {
+                icon: "⚙️",
+                title: "Reliability",
+                body: "Your restaurant can't afford downtime. We build for stability and uptime.",
+              },
+              {
+                icon: "🌱",
+                title: "Continuous improvement",
+                body: "We ship updates constantly based on feedback from our restaurant partners.",
+              },
+            ].map((v) => (
+              <li class="value-card">
+                <span class="value-card__icon" aria-hidden="true">{v.icon}</span>
+                <h3 class="value-card__title">{v.title}</h3>
+                <p>{v.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <CTABanner
+      title="Want to learn more about Foaps?"
+      subtitle="Talk to our team and see how Foaps can work for your restaurant."
+      primaryLabel="Get a Demo"
+      primaryHref="/request-demo"
+      secondaryLabel="Contact Us"
+      secondaryHref="mailto:hello@foaps.co"
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .about-hero {
+    padding: 80px 0 40px;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .about-story {
+    padding: 80px 0;
+  }
+
+  .about-story__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .about-story__content h2 {
+    margin-bottom: 24px;
+  }
+
+  .about-story__content p {
+    margin-bottom: 20px;
+  }
+
+  .about-story__content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-story__image img {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .about-values {
+    padding: 80px 0;
+    background: var(--color-light-bg);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .value-card {
+    padding: 28px;
+    background: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid #eee;
+  }
+
+  .value-card__icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .value-card__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+  }
+
+  .value-card p {
+    font-size: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .about-story__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

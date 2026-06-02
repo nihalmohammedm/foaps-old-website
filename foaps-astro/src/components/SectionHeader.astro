@@ -1,0 +1,80 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: "left" | "center";
+  showLine?: boolean;
+}
+
+const { eyebrow, title, subtitle, align = "center", showLine = true } = Astro.props;
+---
+
+<div class={`section-header section-header--${align}`}>
+  {eyebrow && <p class="section-header__eyebrow">{eyebrow}</p>}
+  <h2 class="section-header__title">{title}</h2>
+  {
+    showLine && (
+      <img
+        src="/assets/line-decoration.svg"
+        alt=""
+        class="section-header__line"
+        aria-hidden="true"
+        width="250"
+        height="30"
+        loading="lazy"
+      />
+    )
+  }
+  {subtitle && <p class="section-header__subtitle">{subtitle}</p>}
+</div>
+
+<style>
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .section-header--center {
+    text-align: center;
+  }
+
+  .section-header--left {
+    text-align: left;
+  }
+
+  .section-header__eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 14px;
+  }
+
+  .section-header__title {
+    color: var(--color-heading);
+    margin-bottom: 18px;
+  }
+
+  .section-header__line {
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .section-header--left .section-header__line {
+    margin-left: 0;
+  }
+
+  .section-header__subtitle {
+    font-size: 18px;
+    color: var(--color-muted);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 600px;
+  }
+
+  .section-header--center .section-header__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

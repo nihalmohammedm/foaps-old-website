@@ -1,0 +1,114 @@
+---
+const logos = [
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-2.png", alt: "Swiggy" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-7.png", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-3.png", alt: "Zomato" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-8.png", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-5.png", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-4.png", alt: "Dunzo" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
+];
+
+const row1 = logos.slice(0, 8);
+const row2 = logos.slice(7, 15);
+---
+
+<section class="delivery-int">
+  <div class="container">
+    <div class="delivery-int__header">
+      <p class="delivery-int__eyebrow">Receive orders from your food delivery apps</p>
+      <h2 class="delivery-int__title">
+        Connect Foaps with the food delivery apps you use at your restaurants.
+      </h2>
+    </div>
+
+    <div class="delivery-int__logos">
+      <div class="delivery-int__row">
+        {row1.map((logo) => (
+          <div class="delivery-int__logo-wrap">
+            <img src={logo.src} alt={logo.alt} loading="lazy" width="100" height="98" />
+          </div>
+        ))}
+      </div>
+      <div class="delivery-int__row">
+        {row2.map((logo) => (
+          <div class="delivery-int__logo-wrap">
+            <img src={logo.src} alt={logo.alt} loading="lazy" width="100" height="98" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .delivery-int {
+    background: #fff;
+  }
+
+  .delivery-int__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .delivery-int__eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .delivery-int__title {
+    font-size: clamp(22px, 2.5vw, 38px);
+    font-weight: 500;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--color-heading);
+  }
+
+  .delivery-int__logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .delivery-int__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .delivery-int__logo-wrap {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .delivery-int__logo-wrap:hover {
+    transform: scale(1.08);
+  }
+
+  .delivery-int__logo-wrap img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+</style>

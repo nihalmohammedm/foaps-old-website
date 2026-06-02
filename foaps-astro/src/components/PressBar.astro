@@ -1,0 +1,78 @@
+---
+const pressItems = [
+  {
+    name: "The Hindu Business Line",
+    logo: "/assets/the-hindu.png",
+    href: "https://www.thehindubusinessline.com/companies/lasper-technologies-rolls-out-new-food-delivery-app/article34548427.ece",
+  },
+  {
+    name: "YourStory",
+    logo: "/assets/yourstory.png",
+    href: "https://yourstory.com/2021/06/startup-bharat-saas-app-help-restaurant-manage-online-orders/amp",
+  },
+  {
+    name: "New Indian Express",
+    logo: "/assets/indian-express.png",
+    href: "https://www.newindianexpress.com/cities/kochi/2021/may/19/online-orders-made-easy-2304285.html",
+  },
+];
+---
+
+<section class="press-bar">
+  <div class="container press-bar__inner">
+    {
+      pressItems.map((item, i) => (
+        <>
+          <a href={item.href} target="_blank" rel="noopener noreferrer" class="press-bar__item" aria-label={item.name}>
+            <img src={item.logo} alt={item.name} loading="lazy" />
+          </a>
+          {i < pressItems.length - 1 && (
+            <span class="press-bar__sep" aria-hidden="true"></span>
+          )}
+        </>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .press-bar {
+    padding: 30px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .press-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .press-bar__item {
+    display: flex;
+    align-items: center;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+  }
+
+  .press-bar__item:hover {
+    opacity: 0.9;
+  }
+
+  .press-bar__item img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(1);
+  }
+
+  .press-bar__sep {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ccc;
+    flex-shrink: 0;
+  }
+</style>

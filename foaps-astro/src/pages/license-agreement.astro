@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="License Agreement – Foaps" description="Read Foaps software license agreement.">
+  <Navbar />
+  <main class="legal-page">
+    <div class="container">
+      <h1>License Agreement</h1>
+      <p class="legal-page__updated">Last updated: January 2024</p>
+      <div class="legal-page__content">
+        <section>
+          <h2>Software License</h2>
+          <p>Foaps grants you a limited, revocable, non-exclusive, non-transferable license to use the Foaps software solely for your restaurant's internal business operations in accordance with these terms.</p>
+        </section>
+        <section>
+          <h2>Restrictions</h2>
+          <p>You may not copy, modify, distribute, sell, or lease any part of our services or included software, nor may you reverse engineer or attempt to extract the source code of that software.</p>
+        </section>
+        <section>
+          <h2>Ownership</h2>
+          <p>Foaps and its licensors own all right, title, and interest in and to the services, including all intellectual property rights therein.</p>
+        </section>
+        <section>
+          <h2>Contact</h2>
+          <p>For questions, contact us at <a href="mailto:hello@foaps.co">hello@foaps.co</a>.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page { padding: 80px 0; }
+  .legal-page h1 { margin-bottom: 8px; }
+  .legal-page__updated { font-size: 14px; color: #aaa; margin-bottom: 48px; }
+  .legal-page__content { max-width: 760px; display: flex; flex-direction: column; gap: 40px; }
+  .legal-page__content h2 { font-size: 22px; margin-bottom: 14px; }
+  .legal-page__content p { font-size: 16px; line-height: 1.8; }
+  .legal-page__content a { color: var(--color-accent); text-decoration: underline; }
+</style>

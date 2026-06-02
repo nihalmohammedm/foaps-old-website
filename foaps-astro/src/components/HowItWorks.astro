@@ -1,0 +1,164 @@
+---
+const steps = [
+  {
+    eyebrow: "Order Management",
+    title: "Manage online food orders, all from a single point",
+    body: "Receive and manage all your online food orders from Swiggy, Zomato, Dunzo and more in a unified dashboard. No more switching between apps or missing orders.",
+    image: "/assets/how-it-works-1.svg",
+    imageAlt: "Single dashboard showing all food delivery orders",
+    imageRight: false,
+  },
+  {
+    eyebrow: "Menu Management",
+    title: "Bring updates across delivery platforms instantly",
+    body: "Automate your menu and pricing updates via Foaps and eliminate the need to update on each delivery platform manually. Revise your pricing, modify the menu and confirm the availability of items by just updating on Foaps alone.",
+    image: "/assets/how-it-works-2.svg",
+    imageAlt: "Menu updates syncing across delivery platforms",
+    imageRight: true,
+  },
+  {
+    eyebrow: "Usability",
+    title: "Collaborate smoothly with multiple delivery partners",
+    body: "Foaps integrates seamlessly with all major food delivery platforms, making it easy to coordinate across Swiggy, Zomato, Dunzo, and more from one place.",
+    image: "/assets/how-it-works-3.svg",
+    imageAlt: "Multiple delivery partner integrations",
+    imageRight: false,
+  },
+  {
+    eyebrow: "Actionable Insights",
+    title: "Draw decisive conclusions from actionable insights",
+    body: "Identify the best performing fields, the areas that need attention, the potential areas of improvement and find productive insights to grow your business via our comprehensive, in-depth reports.",
+    image: "/assets/how-it-works-4.svg",
+    imageAlt: "Analytics and actionable insights",
+    imageRight: true,
+  },
+];
+---
+
+<section class="how-it-works">
+  <div class="container">
+    <div class="how-it-works__header">
+      <p class="hiw-eyebrow">How it works</p>
+      <h2>How Foaps helps you run your restaurant better</h2>
+      <img src="/assets/line-decoration.svg" alt="" aria-hidden="true" width="250" height="30" loading="lazy" />
+    </div>
+
+    {
+      steps.map((step, i) => (
+        <>
+          <div class={`hiw-step ${step.imageRight ? "hiw-step--reversed" : ""}`}>
+            <div class="hiw-step__text">
+              <p class="hiw-step__eyebrow">{step.eyebrow}</p>
+              <h3 class="hiw-step__title">{step.title}</h3>
+              <p class="hiw-step__body">{step.body}</p>
+            </div>
+            <div class="hiw-step__media">
+              <img src={step.image} alt={step.imageAlt} loading="lazy" />
+            </div>
+          </div>
+          {i < steps.length - 1 && (
+            <div class="hiw-divider" aria-hidden="true">
+              <img src="/assets/llborder.png" alt="" loading="lazy" />
+            </div>
+          )}
+        </>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    background: #fff;
+  }
+
+  .how-it-works__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .how-it-works__header img {
+    margin: 0 auto;
+  }
+
+  .hiw-eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .how-it-works__header h2 {
+    margin-bottom: 14px;
+  }
+
+  .hiw-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 40px 0;
+  }
+
+  .hiw-step--reversed {
+    direction: rtl;
+  }
+
+  .hiw-step--reversed > * {
+    direction: ltr;
+  }
+
+  .hiw-step__eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+
+  .hiw-step__title {
+    font-size: clamp(22px, 2.5vw, 34px);
+    font-weight: 500;
+    color: var(--color-heading);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .hiw-step__body {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--color-muted);
+    font-weight: 300;
+  }
+
+  .hiw-step__media img {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .hiw-divider {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hiw-divider img {
+    width: 100%;
+    height: auto;
+    opacity: 0.25;
+  }
+
+  @media (max-width: 860px) {
+    .hiw-step {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hiw-step--reversed {
+      direction: ltr;
+    }
+  }
+</style>

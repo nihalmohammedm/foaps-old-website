@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Features from "../components/Features.astro";
+import CTABanner from "../components/CTABanner.astro";
+import Testimonials from "../components/Testimonials.astro";
+import WhoCanUse from "../components/WhoCanUse.astro";
+---
+
+<Layout
+  title="Restaurant Order Management System in India – Foaps"
+  description="Foaps is a restaurant order management system that lets you manage all online food orders from Swiggy, Zomato, Dunzo and more in a single dashboard."
+>
+  <Navbar />
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div class="page-hero__content">
+          <SectionHeader
+            eyebrow="Restaurant Order Management System"
+            title="The complete restaurant order management system for India"
+            subtitle="Manage all your online food delivery orders, menu updates, and analytics from a single powerful platform."
+            align="left"
+            showLine={false}
+          />
+          <div class="page-hero__actions">
+            <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary">Start for Free</a>
+            <a href="/request-demo" class="btn btn-outline">Get a Demo</a>
+          </div>
+        </div>
+        <div class="page-hero__image">
+          <img
+            src="/assets/header-hero.svg"
+            alt="Restaurant order management system dashboard"
+            width="600"
+            height="480"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <Features />
+    <WhoCanUse />
+    <Testimonials />
+    <CTABanner />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .page-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .page-hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .page-hero__image img {
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

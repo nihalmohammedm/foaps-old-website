@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Terms & Conditions – Foaps" description="Read Foaps terms and conditions to understand the rules and guidelines for using our restaurant order management platform.">
+  <Navbar />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Terms & Conditions</h1>
+      <p class="legal-page__updated">Last updated: January 2024</p>
+      <div class="legal-page__content">
+        <section>
+          <h2>Acceptance of Terms</h2>
+          <p>By accessing and using Foaps, you accept and agree to be bound by the terms and provisions of this agreement.</p>
+        </section>
+        <section>
+          <h2>Use of Service</h2>
+          <p>Foaps grants you a limited, non-exclusive, non-transferable license to access and use the platform for your restaurant operations. You may not sublicense, sell, resell, or exploit any portion of the service.</p>
+        </section>
+        <section>
+          <h2>Account Responsibility</h2>
+          <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+        </section>
+        <section>
+          <h2>Termination</h2>
+          <p>We may terminate or suspend your account at any time if you breach these terms. You may also terminate your account at any time by contacting us.</p>
+        </section>
+        <section>
+          <h2>Contact</h2>
+          <p>For questions about these terms, contact us at <a href="mailto:hello@foaps.co">hello@foaps.co</a>.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page { padding: 80px 0; }
+  .legal-page h1 { margin-bottom: 8px; }
+  .legal-page__updated { font-size: 14px; color: #aaa; margin-bottom: 48px; }
+  .legal-page__content { max-width: 760px; display: flex; flex-direction: column; gap: 40px; }
+  .legal-page__content h2 { font-size: 22px; margin-bottom: 14px; }
+  .legal-page__content p { font-size: 16px; line-height: 1.8; }
+  .legal-page__content a { color: var(--color-accent); text-decoration: underline; }
+</style>

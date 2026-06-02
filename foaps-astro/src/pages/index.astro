@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import PressBar from "../components/PressBar.astro";
+import ProductVideo from "../components/ProductVideo.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Features from "../components/Features.astro";
+import DeliveryIntegrations from "../components/DeliveryIntegrations.astro";
+import Testimonials from "../components/Testimonials.astro";
+import WhoCanUse from "../components/WhoCanUse.astro";
+import CTABanner from "../components/CTABanner.astro";
+---
+
+<Layout
+  title="Foaps: Online Restaurant Order Management System in India"
+  description="Manage online food orders from Swiggy, Zomato, Dunzo in a single dashboard, increase restaurant sales with actionable insights, automate menu & pricing updates easily."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <PressBar />
+    <ProductVideo />
+    <HowItWorks />
+    <DeliveryIntegrations />
+    <Features />
+    <Testimonials />
+    <WhoCanUse />
+    <CTABanner />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,241 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CTABanner from "../components/CTABanner.astro";
+
+const features = [
+  {
+    icon: "🔄",
+    title: "One update, everywhere",
+    body: "Update your menu once on Foaps and it syncs instantly across Swiggy, Zomato, Dunzo and all other connected platforms.",
+  },
+  {
+    icon: "💰",
+    title: "Bulk pricing updates",
+    body: "Change prices for multiple items at once. Perfect for seasonal menus or promotional pricing.",
+  },
+  {
+    icon: "🚫",
+    title: "Item availability control",
+    body: "Mark items as unavailable instantly when you run out — customers won't order what you can't deliver.",
+  },
+  {
+    icon: "📷",
+    title: "Image & description sync",
+    body: "Update item images and descriptions across all platforms simultaneously.",
+  },
+  {
+    icon: "🗂️",
+    title: "Category management",
+    body: "Organize your menu into categories and reorder them easily for better customer experience.",
+  },
+  {
+    icon: "📅",
+    title: "Scheduled menu changes",
+    body: "Plan ahead — schedule menu changes like lunch specials or weekend-only items in advance.",
+  },
+];
+---
+
+<Layout
+  title="Restaurant Menu Management Software – Foaps"
+  description="Automate your menu and pricing updates via Foaps. Update once and reflect changes across all food delivery platforms instantly."
+>
+  <Navbar />
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div class="page-hero__content">
+          <SectionHeader
+            eyebrow="Menu Management"
+            title="Bring updates across delivery platforms instantly"
+            subtitle="Automate your menu and pricing updates via Foaps and eliminate the need to update on each delivery platform manually."
+            align="left"
+            showLine={false}
+          />
+          <div class="page-hero__actions">
+            <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary">Start for Free</a>
+            <a href="/request-demo" class="btn btn-outline">See a Demo</a>
+          </div>
+        </div>
+        <div class="page-hero__image">
+          <img
+            src="/assets/features-2.svg"
+            alt="Menu management feature illustration"
+            width="580"
+            height="500"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="mm-features">
+      <div class="container">
+        <SectionHeader
+          title="Powerful menu management, made simple"
+          showLine={false}
+        />
+        <ul class="mm-features__grid">
+          {
+            features.map((f) => (
+              <li class="mm-feature-card">
+                <span class="mm-feature-card__icon" aria-hidden="true">{f.icon}</span>
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="mm-detail">
+      <div class="container mm-detail__inner">
+        <div class="mm-detail__content">
+          <p class="mm-detail__eyebrow">How it works</p>
+          <h2>Update once. Reflect everywhere.</h2>
+          <p>
+            Revise your pricing, modify the menu and confirm the availability of items by just
+            updating on Foaps alone. The changes will be reflected across all food delivery
+            platforms in no time.
+          </p>
+          <p>
+            Whether you're running a lunch special, updating seasonal items, or doing a full menu
+            refresh — Foaps makes it instantaneous and painless.
+          </p>
+          <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary" style="margin-top:16px">
+            Get Started Free
+          </a>
+        </div>
+        <div class="mm-detail__image">
+          <img
+            src="/assets/how-it-works-2.svg"
+            alt="Menu update syncing across platforms"
+            loading="lazy"
+            width="560"
+            height="480"
+          />
+        </div>
+      </div>
+    </section>
+
+    <CTABanner
+      title="Stop updating menus manually on every platform"
+      subtitle="Let Foaps handle the sync while you focus on your food."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .page-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .page-hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .page-hero__image img {
+    width: 100%;
+  }
+
+  .mm-features {
+    padding: 80px 0;
+    background: var(--color-light-bg);
+  }
+
+  .mm-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .mm-feature-card {
+    padding: 28px;
+    background: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid #eee;
+  }
+
+  .mm-feature-card__icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .mm-feature-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+  }
+
+  .mm-feature-card p {
+    font-size: 14px;
+  }
+
+  .mm-detail {
+    padding: 80px 0;
+  }
+
+  .mm-detail__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .mm-detail__image img {
+    width: 100%;
+  }
+
+  .mm-detail__eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .mm-detail__content h2 {
+    margin-bottom: 20px;
+  }
+
+  .mm-detail__content p {
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero__inner,
+    .mm-detail__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .mm-features__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .mm-features__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,183 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CTABanner from "../components/CTABanner.astro";
+
+const benefits = [
+  {
+    icon: "📊",
+    title: "Unified Dashboard",
+    body: "View and manage all your orders from Swiggy, Zomato, Dunzo and more in a single, clean interface. No more app-switching.",
+  },
+  {
+    icon: "⚡",
+    title: "Real-time Sync",
+    body: "Menu updates, pricing changes, and availability synced across all platforms the moment you make a change.",
+  },
+  {
+    icon: "📈",
+    title: "Actionable Analytics",
+    body: "In-depth reports help you identify top-selling items, peak hours, and areas to improve — so you can grow with data.",
+  },
+  {
+    icon: "🔗",
+    title: "Easy Integrations",
+    body: "Foaps integrates seamlessly with major food delivery platforms in India. Getting started takes minutes, not days.",
+  },
+  {
+    icon: "🛡️",
+    title: "Reliable & Secure",
+    body: "Your restaurant data is safe with us. We use industry-standard security practices to protect your business information.",
+  },
+  {
+    icon: "🤝",
+    title: "Dedicated Support",
+    body: "Our team is here to help you get the most out of Foaps. Reach out any time via email or chat.",
+  },
+];
+---
+
+<Layout
+  title="Why Foaps – The Smart Way to Manage Restaurant Orders"
+  description="Discover why hundreds of restaurants choose Foaps to manage online orders, menu updates, and get actionable insights from one unified dashboard."
+>
+  <Navbar />
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div class="page-hero__content">
+          <SectionHeader
+            eyebrow="Why Foaps"
+            title="The smarter way to run your restaurant"
+            subtitle="From order chaos to complete control — Foaps gives you everything you need to manage your food delivery business in one place."
+            align="left"
+          />
+          <div class="page-hero__actions">
+            <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary">Start for Free</a>
+            <a href="/request-demo" class="btn btn-outline">Get a Demo</a>
+          </div>
+        </div>
+        <div class="page-hero__image">
+          <img
+            src="/assets/why-foaps.svg"
+            alt="Why Foaps illustration"
+            width="520"
+            height="460"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="container">
+        <SectionHeader
+          title="Everything your restaurant needs, in one platform"
+          subtitle="Foaps is built specifically for restaurants managing online orders across multiple delivery platforms."
+        />
+        <ul class="benefits__grid">
+          {
+            benefits.map((b) => (
+              <li class="benefit-card">
+                <span class="benefit-card__icon" aria-hidden="true">{b.icon}</span>
+                <h3 class="benefit-card__title">{b.title}</h3>
+                <p class="benefit-card__body">{b.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <CTABanner
+      title="Ready to take control of your restaurant?"
+      subtitle="Join hundreds of restaurants already using Foaps to manage orders smarter."
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .page-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .page-hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .page-hero__image img {
+    width: 100%;
+  }
+
+  .benefits {
+    padding: 80px 0;
+  }
+
+  .benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .benefit-card {
+    padding: 32px;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    background: var(--color-white);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .benefit-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .benefit-card__icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-primary);
+  }
+
+  .benefit-card__body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 900px) {
+    .page-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .benefits__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .benefits__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const faqs = [
+  { q: "How do I connect my Swiggy account to Foaps?", a: "Go to Settings → Integrations and follow the step-by-step guide to connect your Swiggy restaurant account." },
+  { q: "Can I manage multiple restaurant outlets?", a: "Yes. Foaps supports multi-outlet management. Add your outlets under Settings → Outlets." },
+  { q: "How quickly does a menu update reflect on delivery platforms?", a: "Menu updates typically reflect within 5–15 minutes across connected delivery platforms." },
+  { q: "What do I do if an order is not appearing in Foaps?", a: "Check your integration status under Settings → Integrations. If the integration shows as connected, please contact our support team." },
+  { q: "How do I export my reports?", a: "In the Reports section, select your date range and report type, then click the Export button to download as CSV or PDF." },
+  { q: "Is there a mobile app?", a: "Foaps is currently available as a web application optimised for all devices including phones and tablets." },
+];
+---
+
+<Layout title="Help & Support – Foaps" description="Get help with Foaps. Find answers to common questions or contact our support team.">
+  <Navbar />
+  <main>
+    <section class="support-hero">
+      <div class="container">
+        <SectionHeader
+          eyebrow="Help & Support"
+          title="How can we help you?"
+          subtitle="Find answers to common questions or get in touch with our support team."
+        />
+      </div>
+    </section>
+
+    <section class="support-contact">
+      <div class="container support-contact__inner">
+        {
+          [
+            { icon: "📧", title: "Email Support", body: "hello@foaps.co", href: "mailto:hello@foaps.co", label: "Send Email" },
+            { icon: "💬", title: "Live Chat", body: "Chat with our support team in real time during business hours.", href: "#", label: "Start Chat" },
+            { icon: "📖", title: "Documentation", body: "Step-by-step guides for setting up and using every Foaps feature.", href: "#", label: "Read Docs" },
+          ].map((card) => (
+            <div class="contact-card">
+              <span class="contact-card__icon" aria-hidden="true">{card.icon}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <a href={card.href} class="btn btn-outline contact-card__btn">{card.label}</a>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="support-faq">
+      <div class="container">
+        <SectionHeader eyebrow="FAQ" title="Frequently asked questions" showLine={false} />
+        <ul class="support-faq__list">
+          {
+            faqs.map((item) => (
+              <li class="support-faq__item">
+                <h4>{item.q}</h4>
+                <p>{item.a}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .support-hero {
+    padding: 80px 0 40px;
+    background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
+  }
+
+  .support-contact {
+    padding: 40px 0 80px;
+  }
+
+  .support-contact__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .contact-card {
+    padding: 36px 28px;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .contact-card__icon {
+    font-size: 36px;
+  }
+
+  .contact-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .contact-card p {
+    font-size: 14px;
+    color: var(--color-muted);
+  }
+
+  .contact-card__btn {
+    margin-top: 8px;
+  }
+
+  .support-faq {
+    padding: 0 0 80px;
+    background: var(--color-light-bg);
+  }
+
+  .support-faq .container {
+    max-width: 780px;
+    padding-top: 80px;
+  }
+
+  .support-faq__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .support-faq__item {
+    padding: 28px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .support-faq__item:first-child {
+    border-top: 1px solid #eee;
+  }
+
+  .support-faq__item h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+  }
+
+  .support-faq__item p {
+    font-size: 15px;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .support-contact__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

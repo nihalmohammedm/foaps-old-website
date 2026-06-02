@@ -1,0 +1,151 @@
+---
+const features = [
+  {
+    title: "Order Management",
+    body: "Receive all your food delivery orders in one place. Accept, reject, and track orders from Swiggy, Zomato, Dunzo and other platforms without switching between apps.",
+    image: "/assets/features-1.svg",
+    imageAlt: "Order management feature",
+    href: "/order-management",
+    imageRight: false,
+  },
+  {
+    title: "Menu Management",
+    body: "Automate your menu and pricing updates via Foaps and eliminate the need to update on each delivery platform manually. Revise your pricing, modify the menu and confirm the availability of items by just updating on Foaps alone. The changes will be then reflected across all food delivery platforms in no time.",
+    image: "/assets/features-2.svg",
+    imageAlt: "Menu management feature",
+    href: "/menu-management",
+    imageRight: true,
+  },
+  {
+    title: "In-depth reports",
+    body: "Identify the best performing fields, the areas that need attention, the potential areas of improvement and find productive insights to grow your business via our comprehensive, in-depth reports generated on the basis of your past order data.",
+    image: "/assets/features-3.svg",
+    imageAlt: "In-depth reports feature",
+    href: "/in-depth-reports",
+    imageRight: false,
+  },
+];
+---
+
+<section class="features-section">
+  <div class="container">
+    <div class="features-section__header">
+      <p class="features-section__eyebrow">Features</p>
+      <h2>Features that are innovative, powerful and most wanted for your restaurant!</h2>
+      <img src="/assets/line-decoration.svg" alt="" aria-hidden="true" width="250" height="30" loading="lazy" />
+    </div>
+
+    {
+      features.map((feature, i) => (
+        <>
+          <div class={`feature-row ${feature.imageRight ? "feature-row--reversed" : ""}`}>
+            <div class="feature-row__text">
+              <h3 class="feature-row__title">{feature.title}</h3>
+              <p class="feature-row__body">{feature.body}</p>
+              <a href={feature.href} class="feature-row__cta btn btn-primary">
+                Read More
+              </a>
+            </div>
+            <div class="feature-row__media">
+              <img src={feature.image} alt={feature.imageAlt} loading="lazy" />
+            </div>
+          </div>
+          {i < features.length - 1 && (
+            <div class="feature-divider" aria-hidden="true">
+              <img src="/assets/llborder.png" alt="" loading="lazy" />
+            </div>
+          )}
+        </>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .features-section {
+    background: var(--color-light-bg);
+  }
+
+  .features-section__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .features-section__eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .features-section__header h2 {
+    max-width: 680px;
+    margin: 0 auto 14px;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 40px 0;
+  }
+
+  .feature-row--reversed {
+    direction: rtl;
+  }
+
+  .feature-row--reversed > * {
+    direction: ltr;
+  }
+
+  .feature-row__title {
+    font-size: clamp(22px, 2.5vw, 34px);
+    font-weight: 500;
+    color: var(--color-heading);
+    margin-bottom: 18px;
+  }
+
+  .feature-row__body {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--color-muted);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .feature-row__cta {
+    padding: 0 32px;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .feature-row__media img {
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .feature-divider {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .feature-divider img {
+    width: 100%;
+    height: auto;
+    opacity: 0.25;
+  }
+
+  @media (max-width: 860px) {
+    .feature-row {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .feature-row--reversed {
+      direction: ltr;
+    }
+  }
+</style>
