@@ -5,58 +5,6 @@ import Footer from "../components/Footer.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import CTABanner from "../components/CTABanner.astro";
 
-const plans = [
-  {
-    name: "Starter",
-    price: "₹999",
-    period: "/month",
-    description: "Perfect for single-outlet restaurants just getting started with online orders.",
-    features: [
-      "1 restaurant outlet",
-      "Up to 3 delivery platforms",
-      "Order management dashboard",
-      "Basic menu management",
-      "Email support",
-    ],
-    cta: "Get Started",
-    href: "https://receiver.orderpipe.co/v2/#/signup",
-    highlighted: false,
-  },
-  {
-    name: "Growth",
-    price: "₹2,499",
-    period: "/month",
-    description: "For growing restaurants that need advanced features and deeper insights.",
-    features: [
-      "Up to 3 restaurant outlets",
-      "Unlimited delivery platforms",
-      "Advanced order management",
-      "Full menu & pricing sync",
-      "In-depth analytics & reports",
-      "Priority support",
-    ],
-    cta: "Start Free Trial",
-    href: "https://receiver.orderpipe.co/v2/#/signup",
-    highlighted: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "For multi-chain restaurants and cloud kitchen operators with custom needs.",
-    features: [
-      "Unlimited outlets",
-      "Unlimited delivery platforms",
-      "Custom integrations",
-      "Dedicated account manager",
-      "SLA-backed uptime",
-      "Custom reports & API access",
-    ],
-    cta: "Contact Sales",
-    href: "/request-demo",
-    highlighted: false,
-  },
-];
 
 const faqItems = [
   {
@@ -88,43 +36,30 @@ const faqItems = [
       <div class="container">
         <SectionHeader
           eyebrow="Pricing"
-          title="Simple, transparent pricing"
-          subtitle="Our plans are simple, transparent, and reasonable to suit your requirements. We charge only for what is provided — no hidden fees."
+          title="Only pay for what is delivered. Nothing more."
+          subtitle="Our plans are simple, transparent, and reasonable, curated to suit your requirements. We charge only for what is provided and no extra/hidden charges are incurred. All you need to do is choose the right plan ideal for your restaurant!"
         />
       </div>
     </section>
 
-    <section class="pricing-plans">
+    <section class="pricing-comparison">
       <div class="container">
-        <ul class="pricing-plans__grid">
-          {
-            plans.map((plan) => (
-              <li class={`pricing-card ${plan.highlighted ? "pricing-card--highlight" : ""}`}>
-                <div class="pricing-card__header">
-                  <h3 class="pricing-card__name">{plan.name}</h3>
-                  <div class="pricing-card__price">
-                    <span class="pricing-card__amount">{plan.price}</span>
-                    {plan.period && <span class="pricing-card__period">{plan.period}</span>}
-                  </div>
-                  <p class="pricing-card__description">{plan.description}</p>
-                </div>
-                <ul class="pricing-card__features">
-                  {plan.features.map((feature) => (
-                    <li class="pricing-card__feature">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <a href={plan.href} class={`btn ${plan.highlighted ? "btn-primary" : "btn-outline"} pricing-card__cta`}>
-                  {plan.cta}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+        <img src="/assets/llborder.png" alt="" aria-hidden="true" class="pricing-divider" loading="lazy" />
+        <div class="pricing-comparison__row">
+          <div class="pricing-option">
+            <span class="pricing-option__amount">₹798</span>
+            <span class="pricing-option__label">Monthly per platform</span>
+          </div>
+          <div class="pricing-or">OR</div>
+          <div class="pricing-option">
+            <span class="pricing-option__amount">₹6420</span>
+            <span class="pricing-option__label">Annually per platform</span>
+            <span class="pricing-option__save">(Save 33% on annual billing)</span>
+          </div>
+        </div>
+        <img src="/assets/llborder.png" alt="" aria-hidden="true" class="pricing-divider" loading="lazy" />
+        <p class="pricing-note">No Credit Card Required. 30-Day Free Trial</p>
+        <a href="https://receiver.orderpipe.co/v2/#/signup" class="btn btn-primary pricing-cta">Start Free Trial</a>
       </div>
     </section>
 
@@ -147,8 +82,6 @@ const faqItems = [
     <CTABanner
       title="Still have questions? Talk to our team."
       subtitle="We'd love to help you find the right plan for your restaurant."
-      primaryLabel="Get a Demo"
-      primaryHref="/request-demo"
       secondaryLabel="Contact Us"
       secondaryHref="mailto:hello@foaps.co"
     />
@@ -162,89 +95,74 @@ const faqItems = [
     background: linear-gradient(135deg, #fff9f7 0%, #fff 60%);
   }
 
-  .pricing-plans {
-    padding: 40px 0 80px;
+  .pricing-comparison {
+    padding: 20px 0 80px;
+    text-align: center;
   }
 
-  .pricing-plans__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: start;
+  .pricing-divider {
+    width: 100%;
+    height: auto;
+    opacity: 0.25;
+    display: block;
+    margin: 32px 0;
   }
 
-  .pricing-card {
-    border: 1px solid #eee;
-    border-radius: 16px;
-    padding: 36px 28px;
-    background: var(--color-white);
+  .pricing-comparison__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .pricing-option {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    align-items: center;
+    gap: 8px;
   }
 
-  .pricing-card--highlight {
-    border-color: var(--color-accent);
-    box-shadow: 0 8px 40px rgba(255, 107, 40, 0.15);
-    transform: scale(1.03);
-  }
-
-  .pricing-card__name {
-    font-size: 20px;
+  .pricing-option__amount {
+    font-size: clamp(40px, 6vw, 72px);
     font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: 12px;
+    color: var(--color-heading);
+    line-height: 1;
   }
 
-  .pricing-card__price {
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-    margin-bottom: 12px;
+  .pricing-option__label {
+    font-size: 18px;
+    color: var(--color-muted);
   }
 
-  .pricing-card__amount {
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .pricing-card__period {
+  .pricing-option__save {
     font-size: 15px;
-    color: var(--color-muted);
-  }
-
-  .pricing-card__description {
-    font-size: 14px;
-    color: var(--color-muted);
-    line-height: 1.6;
-  }
-
-  .pricing-card__features {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-  }
-
-  .pricing-card__feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--color-muted);
-    line-height: 1.5;
-  }
-
-  .pricing-card__feature svg {
-    flex-shrink: 0;
-    margin-top: 2px;
     color: var(--color-accent);
   }
 
-  .pricing-card__cta {
-    width: 100%;
-    text-align: center;
+  .pricing-or {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--color-heading);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .pricing-note {
+    font-size: 17px;
+    color: var(--color-muted);
+    margin: 32px 0 24px;
+  }
+
+  .pricing-cta {
+    padding: 0 48px;
+    height: 52px;
+    font-size: 16px;
   }
 
   .faq {
@@ -284,15 +202,10 @@ const faqItems = [
     line-height: 1.7;
   }
 
-  @media (max-width: 900px) {
-    .pricing-plans__grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .pricing-card--highlight {
-      transform: none;
+  @media (max-width: 600px) {
+    .pricing-comparison__row {
+      flex-direction: column;
+      gap: 32px;
     }
   }
 </style>

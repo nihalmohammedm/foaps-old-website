@@ -1,114 +1,196 @@
 ---
-const logos = [
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-2.png", alt: "Swiggy" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-7.png", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-3.png", alt: "Zomato" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-8.png", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-5.png", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-4.png", alt: "Dunzo" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-  { src: "/assets/delivery-logo-placeholder.svg", alt: "Delivery Platform" },
-];
+// col/row positions traced from the reference screenshot
+// type "logo" = actual platform tile, type "lock" = coming-soon placeholder
 
-const row1 = logos.slice(0, 8);
-const row2 = logos.slice(7, 15);
+type Tile =
+  | { type: "lock"; col: number; row: number }
+  | { type: "logo"; col: number; row: number; src: string; alt: string; raised?: boolean };
+
+const tiles: Tile[] = [
+  // ── Row 1 — elevated logo + edge locks ──────────────────────────
+  { type: "lock", col: 1, row: 1 },
+  { type: "lock", col: 2, row: 1 },
+  { type: "logo", col: 9, row: 1, src: "/assets/delivery-logo-4.png", alt: "Delivery platform" },
+
+  // ── Row 2 — three main logos + minimal gap locks ─────────────────
+  { type: "lock", col: 1, row: 2 },
+  { type: "logo", col: 3, row: 2, src: "/assets/delivery-logo-2.png", alt: "Delivery platform" },
+  { type: "logo", col: 5, row: 2, src: "/assets/delivery-logo-3.png", alt: "Delivery platform" },
+  { type: "lock", col: 7, row: 2 },
+  { type: "logo", col: 8, row: 2, src: "/assets/delivery-logo-5.png", alt: "Delivery platform" },
+  { type: "lock", col: 10, row: 2 },
+
+  // ── Row 3 — Dunzo(4) + Swiggy(6): between the logos above ───────
+  { type: "lock", col: 1, row: 3 },
+  { type: "logo", col: 4, row: 3, src: "/assets/delivery-logo-7.png", alt: "Delivery platform", raised: true },
+  { type: "logo", col: 6, row: 3, src: "/assets/delivery-logo-8.png", alt: "Delivery platform", raised: true },
+  { type: "lock", col: 10, row: 3 },
+];
 ---
 
-<section class="delivery-int">
-  <div class="container">
-    <div class="delivery-int__header">
-      <p class="delivery-int__eyebrow">Receive orders from your food delivery apps</p>
-      <h2 class="delivery-int__title">
+<section class="di-section">
+  <div class="container di-card">
+    <div class="di-header">
+      <p class="di-eyebrow">Receive orders from your food delivery apps</p>
+      <h2 class="di-title">
         Connect Foaps with the food delivery apps you use at your restaurants.
       </h2>
     </div>
 
-    <div class="delivery-int__logos">
-      <div class="delivery-int__row">
-        {row1.map((logo) => (
-          <div class="delivery-int__logo-wrap">
-            <img src={logo.src} alt={logo.alt} loading="lazy" width="100" height="98" />
+    <div class="di-grid">
+      {tiles.map((tile) => {
+        const gridStyle = `grid-column:${tile.col};grid-row:${tile.row}`;
+        if (tile.type === "lock") {
+          return (
+            <div class="di-tile di-tile--lock" style={gridStyle} aria-hidden="true">
+              <img src="/assets/delivery-logo-placeholder.svg" alt="" width="76" height="76" />
+            </div>
+          );
+        }
+        return (
+          <div class={`di-tile di-tile--logo${tile.raised ? " di-tile--raised" : ""}`} style={gridStyle}>
+            <img src={tile.src} alt={tile.alt} width="76" height="76" loading="lazy" />
           </div>
-        ))}
-      </div>
-      <div class="delivery-int__row">
-        {row2.map((logo) => (
-          <div class="delivery-int__logo-wrap">
-            <img src={logo.src} alt={logo.alt} loading="lazy" width="100" height="98" />
-          </div>
-        ))}
-      </div>
+        );
+      })}
     </div>
   </div>
 </section>
 
 <style>
-  .delivery-int {
+  .di-section {
     background: #fff;
+    padding: 0 0 90px;
   }
 
-  .delivery-int__header {
+  /* Peach card */
+  .di-card {
+    background: #fdf1ea;
+    border-radius: 24px;
+    padding: 72px 60px 64px;
+  }
+
+  .di-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 52px;
   }
 
-  .delivery-int__eyebrow {
+  .di-eyebrow {
     font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: 12px;
+    font-weight: 400;
+    color: #aaa;
+    margin-bottom: 16px;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
-  .delivery-int__title {
-    font-size: clamp(22px, 2.5vw, 38px);
-    font-weight: 500;
+  .di-title {
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 600;
+    color: var(--color-heading);
     max-width: 700px;
     margin: 0 auto;
-    color: var(--color-heading);
+    line-height: 1.2;
   }
 
-  .delivery-int__logos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .delivery-int__row {
-    display: flex;
-    align-items: center;
+  /* Mosaic grid */
+  .di-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 76px);
+    grid-template-rows: repeat(3, 76px);
+    gap: 12px;
     justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
   }
 
-  .delivery-int__logo-wrap {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
+  /* Tile base */
+  .di-tile {
+    width: 76px;
+    height: 76px;
+    border-radius: 14px;
     overflow: hidden;
-    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .delivery-int__logo-wrap:hover {
-    transform: scale(1.08);
+  .di-tile img {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    display: block;
   }
 
-  .delivery-int__logo-wrap img {
-    width: 80px;
-    height: 80px;
+  /* Lock tile — slightly muted */
+  .di-tile--lock {
+    background: #ede8e3;
+    opacity: 0.6;
+  }
+
+  .di-tile--lock img {
     object-fit: contain;
+    padding: 14px;
+    opacity: 0.5;
+    filter: grayscale(1);
+  }
+
+  /* Logo tile */
+  .di-tile--logo {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+
+  .di-tile--raised {
+    transform: translateY(-40px);
+  }
+
+  .di-tile--logo:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+  }
+
+  .di-tile--raised:hover {
+    transform: translateY(-44px) scale(1.05);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .di-card {
+      padding: 52px 24px 48px;
+    }
+
+    .di-grid {
+      grid-template-columns: repeat(5, 72px);
+      grid-template-rows: none;
+    }
+
+    .di-tile {
+      grid-column: auto !important;
+      grid-row: auto !important;
+      width: 72px;
+      height: 72px;
+    }
+
+    .di-tile img {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .di-grid {
+      grid-template-columns: repeat(4, 68px);
+    }
+
+    .di-tile {
+      width: 68px;
+      height: 68px;
+    }
+
+    .di-tile img {
+      width: 68px;
+      height: 68px;
+    }
   }
 </style>
